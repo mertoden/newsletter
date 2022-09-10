@@ -13,14 +13,16 @@ import NewsCard from './Components/NewsCard';
 import news_data from './news_data.json'
 
 function App() {
-
+  //burada kullanmamın sebebi döngüyle tekrar oluşturmak zorunda kalmıyoruz.
+  const renderNews = ({item}) => <NewsCard news={item} />
 
   return (
     <SafeAreaView style={styles.container}>
       <View>
       <FlatList
+      keyExtractor={(item, index) => item.u_id.toString()}//burada flatlistimiz ekrana bakılmadığında verileri siler ihtiyaç duyuldukça çağırır ekranda göstereceklerini ayırt etmeli o yüzden gerekli.
         data = {news_data}
-        renderItem={({item}) => <NewsCard news={item} />}
+        renderItem={renderNews}
       />
       </View>
     </SafeAreaView>
