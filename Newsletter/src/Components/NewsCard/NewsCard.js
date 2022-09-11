@@ -5,7 +5,7 @@ import styles from './NewsCard.style';
 const NewsCard = ({news}) => {
     return (
     <View style={styles.container}>
-        <Image style={styles.Image} source={{url: news.imageUrl}}/>
+        <Image style={styles.Image} source={{uri: news.imageUrl}}/>
         <Text style={styles.title}>{news.title}</Text>
         <Text style={styles.description}>{news.description}</Text>
     </View>
